@@ -1,0 +1,38 @@
+body {
+  max-width: 800px;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  color: orangered;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  color: gray;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+  color: gray;
+}
+
+.app-container {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.weather-details {
+  padding: 0;
+  color: lightcoral;
+}

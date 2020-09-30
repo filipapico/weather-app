@@ -1,12 +1,12 @@
 body {
   max-width: 800px;
   margin: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
   font-size: 60px;
   color: orangered;
-  text-align: center;
 }
 
 h2 {
@@ -21,9 +21,17 @@ footer {
 
 ul {
   list-style: none;
-  padding: 0 0 0 20px;
+  padding: 0;
   margin: 0;
   color: gray;
+}
+
+.icon-today {
+  font-size: 64px;
+}
+
+.temperature-today {
+  font-size: 64px;
 }
 
 .app-container {

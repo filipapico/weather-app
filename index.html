@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="src/style.css" />
   </head>
+
   <body>
     <div class="container">
       <div class="app-container">
@@ -19,16 +20,41 @@
           <div class="col-6">
             <h1>Lisbon</h1>
           </div>
-          <div class="col-6"></div>
+          <div class="col-6">
+            <form>
+              <input
+                type="text"
+                name="city-name"
+                id="city-name"
+                placeholder="Search city here"
+                autofocus="on"
+              />
+              <input type="submit" value="Search" />
+              <input type="submit" value="Current city" />
+            </form>
+          </div>
         </div>
+
         <div class="row">
-          <ul>
-            <li>Weekday, hour</li>
-            <li>Day Month</li>
-          </ul>
+          <div class="col-6">
+            <ul>
+              <li>Weekday, hour</li>
+              <li>Day Month</li>
+            </ul>
+          </div>
         </div>
+
         <div class="row">
-          <div class="col-6">☀️ and Temp</div>
+          <div class="col-3">
+            <div class="icon-today">☀️</div>
+          </div>
+          <div class="col-3">
+            <span class="temperature-today">22</span>
+            <span class="units">
+              <a href="#" id="celsius">°C</a>|
+              <a href="#" id="fahrenheit">°F</a>
+            </span>
+          </div>
           <div class="col-6">
             <ul class="weather-details">
               <li>Weather today</li>
@@ -37,6 +63,7 @@
             </ul>
           </div>
         </div>
+
         <h2>Forecast <small>(5 days)</small></h2>
         <div class="row">
           <div class="col-2">☀️ and Temp</div>
@@ -46,12 +73,12 @@
           <div class="col-2">☀️ and Temp</div>
         </div>
       </div>
+      <footer>
+        <a href="https://github.com/filipapico/weather-app" target="_blank"
+          >Open-source code</a
+        >
+        by Filipa Pico
+      </footer>
     </div>
-    <footer>
-      <a href="https://github.com/filipapico/weather-app" target="_blank"
-        >Open-source code</a
-      >
-      by Filipa Pico
-    </footer>
   </body>
 </html>

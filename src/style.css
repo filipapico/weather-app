@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 40px;
   color: orangered;
 }
 
@@ -27,11 +27,18 @@ ul {
 }
 
 .icon-today {
-  font-size: 64px;
+  font-size: 55px;
+  text-align: right;
 }
 
 .temperature-today {
-  font-size: 64px;
+  font-size: 60px;
+}
+
+.units {
+  position: relative;
+  bottom: 30px;
+  text-align: left;
 }
 
 .app-container {

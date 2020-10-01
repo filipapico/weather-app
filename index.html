@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -18,7 +19,7 @@
       <div class="app-container">
         <div class="row">
           <div class="col-6">
-            <h1>Lisbon</h1>
+            <h1></h1>
           </div>
           <div class="col-6">
             <form>
@@ -46,8 +47,8 @@
 
         <div class="row">
           <div class="col-6">
-            <span class="icon-today">☀️</span>
-            <span class="temperature-today">22</span>
+            <span class="icon-today">☀</span>
+            <span class="temperature-today"></span>
             <span class="units">
               <a href="#" id="celsius">°C</a>|
               <a href="#" id="fahrenheit">°F</a>
@@ -55,9 +56,9 @@
           </div>
           <div class="col-6">
             <ul class="weather-details">
-              <li>Weather today</li>
-              <li>Humidity</li>
-              <li>Wind</li>
+              <li id="main-description">Weather today</li>
+              <li>Humidity: <span id="humidity"></span> %</li>
+              <li>Wind speed: <span id="wind"></span> km/h</li>
             </ul>
           </div>
         </div>
@@ -78,5 +79,7 @@
         by Filipa Pico
       </footer>
     </div>
+
+    <script src="src/script.js"></script>
   </body>
 </html>

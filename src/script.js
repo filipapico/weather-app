@@ -1,5 +1,48 @@
+function timeUpdate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay(timestamp)];
+  let hours = date.getHours(timestamp);
+  if (hours < 10) {
+    `0${hours}`;
+  }
+  let minutes = date.getMinutes(timestamp);
+  if (minutes < 10) {
+    `0${minutes}`;
+  }
+  return `${day}, ${hours}:${minutes}`;
+}
+
+function monthUpdate(timestamp) {
+  let date = new Date(timestamp);
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = date.getDate(timestamp);
+  let month = months[date.getMonth(timestamp)];
+  return `${day}, ${month}`;
+}
+
 function getTemperature(response) {
-  console.log(response.data);
   let temperature = document.querySelector(".temperature-today");
   temperature.innerHTML = Math.round(response.data.main.temp);
   let city = document.querySelector("h1");
@@ -10,6 +53,10 @@ function getTemperature(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
+  let weekdayHour = document.querySelector("#weekday-hour");
+  weekdayHour.innerHTML = timeUpdate(response.data.dt * 1000);
+  let dayMonth = document.querySelector("#day-month");
+  dayMonth.innerHTML = monthUpdate(response.data.dt * 1000);
 }
 
 let apiKey = "f2741c2d8db0d12b06b1e9b5fcfef6a1";

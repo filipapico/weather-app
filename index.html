@@ -23,15 +23,19 @@
           </div>
           <div class="col-6">
             <form>
-              <input
-                type="text"
-                name="city-name"
-                id="city-name"
-                placeholder="Search city here"
-                autofocus="on"
-              />
-              <input type="submit" value="Search" />
-              <input type="submit" value="Current city" />
+              <div class="form-search custom-control-inline">
+                <input
+                  type="text"
+                  name="city-name"
+                  class="form-control"
+                  id="city-name"
+                  placeholder="Search city here"
+                  autofocus="on"
+                />
+              </div>
+              <button type="submit" value="Search" class="btn btn-primary">
+                Search
+              </button>
             </form>
           </div>
         </div>
@@ -42,6 +46,16 @@
               <li id="weekday-hour">Weekday, hour</li>
               <li id="day-month">Day Month</li>
             </ul>
+          </div>
+          <div class="col-6">
+            <form>
+              <input
+                type="button"
+                class="btn btn-outline-secondary"
+                id="current-city"
+                value="Current city"
+              />
+            </form>
           </div>
         </div>
 

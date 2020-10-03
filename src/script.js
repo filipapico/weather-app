@@ -43,6 +43,8 @@ function monthUpdate(timestamp) {
 }
 
 function getTemperature(response) {
+  // Remove next line
+  console.log(response.data);
   let temperature = document.querySelector(".temperature-today");
   temperature.innerHTML = Math.round(response.data.main.temp);
   let city = document.querySelector("h1");
@@ -57,6 +59,12 @@ function getTemperature(response) {
   weekdayHour.innerHTML = timeUpdate(response.data.dt * 1000);
   let dayMonth = document.querySelector("#day-month");
   dayMonth.innerHTML = monthUpdate(response.data.dt * 1000);
+  let iconToday = document.querySelector("#icon-today");
+  iconToday.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconToday.setAttribute("alt", response.data.weather[0].main);
 }
 
 let apiKey = "f2741c2d8db0d12b06b1e9b5fcfef6a1";

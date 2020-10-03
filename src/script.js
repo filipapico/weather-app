@@ -45,8 +45,9 @@ function monthUpdate(timestamp) {
 function getTemperature(response) {
   // Remove next line
   // console.log(response.data);
-  let temperature = document.querySelector(".temperature-today");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  let temperature = document.querySelector("#temperature-today");
+  temperatureCelsius = response.data.main.temp;
+  temperature.innerHTML = Math.round(temperatureCelsius);
   let city = document.querySelector("h1");
   city.innerHTML = response.data.name;
   let description = document.querySelector("#main-description");
@@ -99,3 +100,34 @@ function handleClick(event) {
 
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("click", handleClick);
+
+// Daqui em diante ainda não funciona - Em desenvolvimento
+
+function showTemperatureFahrenheit(event) {
+  event.preventDefault();
+  console.log(returnCelsius.text);
+  returnCelsius.classList.remove("active");
+  temperatureFahrenheit.classList.add("active");
+  let temperature = document.querySelector("#temperature-today");
+  let temperatureConvertFahrenheit = (temperatureCelsius * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(temperatureConvertFahrenheit);
+}
+
+let temperatureCelsius = null;
+
+let temperatureFahrenheit = document.querySelector("#fahrenheit");
+temperatureFahrenheit.addEventListener("click", showTemperatureFahrenheit);
+
+function showTemperatureCelsius(event) {
+  event.preventDefault();
+  returnCelsius.classList.add("active");
+  temperatureFahrenheit.classList.remove("active");
+  let temperature = document.querySelector("#temperature-today");
+  temperature.innerHTML = Math.round(temperatureCelsius);
+}
+
+let returnCelsius = document.querySelector("#celsius");
+returnCelsius.addEventListener("click", showTemperatureCelsius);
+
+// Para começar com alguma cidade - Pré-definição LISBOA
+updateCity("Lisbon");

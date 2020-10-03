@@ -44,7 +44,7 @@ function monthUpdate(timestamp) {
 
 function getTemperature(response) {
   // Remove next line
-  console.log(response.data);
+  // console.log(response.data);
   let temperature = document.querySelector(".temperature-today");
   temperature.innerHTML = Math.round(response.data.main.temp);
   let city = document.querySelector("h1");
@@ -67,8 +67,18 @@ function getTemperature(response) {
   iconToday.setAttribute("alt", response.data.weather[0].main);
 }
 
-let apiKey = "f2741c2d8db0d12b06b1e9b5fcfef6a1";
-let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisboa&appid=${apiKey}&units=${units}`;
+function updateCity(city) {
+  let apiKey = "f2741c2d8db0d12b06b1e9b5fcfef6a1";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(getTemperature);
+}
 
-axios.get(apiUrl).then(getTemperature);
+function submitHandle(event) {
+  event.preventDefault();
+  let cityName = document.querySelector("#city-name");
+  updateCity(cityName.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitHandle);

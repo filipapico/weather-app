@@ -87,6 +87,7 @@ function forecastTime(timestamp) {
       minutes = `0${minutes}`;
     }
   }
+  // Remove if to keep daily forecast
   // return `${hours}:${minutes}`;
 
   let months = [
@@ -124,7 +125,7 @@ function getForecast(response) {
     forecast.innerHTML += `<div class="col-3">
       <h3>${forecastTime(forecastResponse.dt * 1000)}</h3>
       <div>
-      <img src="${icon}" alt="" id="icon-today" />
+      <img src="${icon}" alt="" id="icon-forecast" />
       </div>
       <h4>
       ${temperature}°C

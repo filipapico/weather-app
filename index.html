@@ -31,9 +31,10 @@
                   id="city-name"
                   placeholder="Search city here"
                   autofocus="on"
+                  autocomplete="off"
                 />
               </div>
-              <input type="submit" value="Search" class="btn btn-primary">
+              <input type="submit" value="Search" class="btn-outline-* search">
             </input>
             </form>
           </div>
@@ -46,7 +47,8 @@
               <li id="day-month">Day Month</li>
             </ul>
           </div>
-          <div class="col-6">
+          <div class="col-3"></div>
+          <div class="col-3">
             <form>
               <input
                 type="button"
@@ -69,17 +71,21 @@
           </div>
           <div class="col-6">
             <ul class="weather-details">
-              <li id="main-description">Weather today</li>
+              <li id="main-description"></li>
               <li>Humidity: <span id="humidity"></span> %</li>
               <li>Wind speed: <span id="wind"></span> km/h</li>
             </ul>
           </div>
         </div>
 
-        <h2>Forecast <small>(4 days*)</small></h2>
+        <h2>Forecast <small>(4 days)</small><span class="asterisc">*</span></h2>
         <div class="row" id="forecast">
         </div>
-        <div><small>*everyday at this time</small></div>
+        <div class="row">
+          <div class="col-12 asterisc">
+          *everyday at this time
+          </div>
+        </div>
       </div>
       <footer>
         <a href="https://github.com/filipapico/weather-app" target="_blank"

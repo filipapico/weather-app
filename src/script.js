@@ -68,11 +68,48 @@ function getTemperature(response) {
   iconToday.setAttribute("alt", response.data.weather[0].main);
 }
 
+function getForecast(response) {
+  console.log(response.data);
+  let forecast = document.querySelector("#forecast");
+  let date = new Date();
+  let day = date.getDate();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[date.getMonth()];
+  let icon = `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`;
+  let temperature = Math.round(response.data.list[0].main.temp);
+
+  forecast.innerHTML = `<div class="col-2">
+      <h3>${day}, ${month}</h3>
+      <div>
+      <img src="${icon}" alt="" id="icon-today" />
+      </div>
+      <small>
+      ${temperature}°C
+      </small>
+    </div>`;
+}
+
 function updateCity(city) {
   let apiKey = "f2741c2d8db0d12b06b1e9b5fcfef6a1";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(getTemperature);
+  // FORECAST
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  https: axios.get(apiUrl).then(getForecast);
 }
 
 function submitHandle(event) {
@@ -101,11 +138,8 @@ function handleClick(event) {
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("click", handleClick);
 
-// Daqui em diante ainda não funciona - Em desenvolvimento
-
 function showTemperatureFahrenheit(event) {
   event.preventDefault();
-  console.log(returnCelsius.text);
   returnCelsius.classList.remove("active");
   temperatureFahrenheit.classList.add("active");
   let temperature = document.querySelector("#temperature-today");
@@ -129,5 +163,5 @@ function showTemperatureCelsius(event) {
 let returnCelsius = document.querySelector("#celsius");
 returnCelsius.addEventListener("click", showTemperatureCelsius);
 
-// Para começar com alguma cidade - Pré-definição LISBOA
+// To start with a predefined city (I chose LISBON)
 updateCity("Lisbon");

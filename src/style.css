@@ -1,5 +1,4 @@
 body {
-  max-width: 800px;
   margin: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -24,7 +23,8 @@ h3 {
 h4 {
   font-size: 20px;
   text-align: center;
-  color: #757575;
+  /* color: #757575; */
+  color: #ff5722;
 }
 
 ul {
@@ -48,11 +48,14 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+
 .app-container {
+  max-width: 700px;
   border: 1px solid gray;
   border-radius: 10px;
   padding: 20px;
   background-color: #bdbdbd;
+  margin: 0 auto;
 }
 
 .search {
@@ -70,7 +73,6 @@ footer {
 }
 
 #icon-today {
-  font-size: 55px;
   text-align: right;
 }
 

@@ -15,11 +15,12 @@ function timeUpdate(timestamp) {
     hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
-  if (minutes === 0) {
-    minutes = `0`;
-  }
   if (minutes < 10) {
-    minutes = `0${minutes}`;
+    if (minutes === 0) {
+      minutes = `00`;
+    } else {
+      minutes = `0${minutes}`;
+    }
   }
   return `${day}, ${hours}:${minutes}`;
 }
@@ -79,12 +80,14 @@ function forecastTime(timestamp) {
     hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
-  if (minutes === 0) {
-    minutes = `0`;
-  }
   if (minutes < 10) {
-    minutes = `0${minutes}`;
+    if (minutes === 0) {
+      minutes = `00`;
+    } else {
+      minutes = `0${minutes}`;
+    }
   }
+
   return `${hours}:${minutes}`;
 }
 

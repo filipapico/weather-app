@@ -1,5 +1,5 @@
 function timeUpdate(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date();
   let days = [
     "Sunday",
     "Monday",
@@ -9,12 +9,12 @@ function timeUpdate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay(timestamp)];
-  let hours = date.getHours(timestamp);
+  let day = days[date.getDay()];
+  let hours = date.getHours();
   if (hours < 10) {
     `0${hours}`;
   }
-  let minutes = date.getMinutes(timestamp);
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     `0${minutes}`;
   }
@@ -22,7 +22,7 @@ function timeUpdate(timestamp) {
 }
 
 function monthUpdate(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date();
   let months = [
     "January",
     "February",
@@ -37,8 +37,8 @@ function monthUpdate(timestamp) {
     "November",
     "December",
   ];
-  let day = date.getDate(timestamp);
-  let month = months[date.getMonth(timestamp)];
+  let day = date.getDate();
+  let month = months[date.getMonth()];
   return `${day}, ${month}`;
 }
 

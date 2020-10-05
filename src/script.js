@@ -1,5 +1,5 @@
 function timeUpdate(timestamp) {
-  let date = new Date();
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -12,17 +12,20 @@ function timeUpdate(timestamp) {
   let day = days[date.getDay()];
   let hours = date.getHours();
   if (hours < 10) {
-    `0${hours}`;
+    hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
+  if (minutes === 0) {
+    minutes = `0`;
+  }
   if (minutes < 10) {
-    `0${minutes}`;
+    minutes = `0${minutes}`;
   }
   return `${day}, ${hours}:${minutes}`;
 }
 
 function monthUpdate(timestamp) {
-  let date = new Date();
+  let date = new Date(timestamp);
   let months = [
     "January",
     "February",
@@ -68,37 +71,60 @@ function getTemperature(response) {
   iconToday.setAttribute("alt", response.data.weather[0].main);
 }
 
+function forecastTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  console.log(hours);
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes === 0) {
+    minutes = `0`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+// TO TRY LATER USING DAILY FORECAST ;-)
+// let months = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
+// let day = date.getDate();
+// let month = months[date.getMonth()];
+// return `${day}, ${month}`;
+// END
+
 function getForecast(response) {
+  // REMOVE NEXT LINE
   console.log(response.data);
   let forecast = document.querySelector("#forecast");
-  let date = new Date();
-  let day = date.getDate();
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[date.getMonth()];
-  let icon = `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`;
-  let temperature = Math.round(response.data.list[0].main.temp);
-
+  let forecastResponse = response.data.list[0];
+  let icon = `http://openweathermap.org/img/wn/${forecastResponse.weather[0].icon}@2x.png`;
+  let temperature = Math.round(forecastResponse.main.temp);
+  // REMOVE NEXT LINE
+  console.log(forecastResponse.dt_txt);
   forecast.innerHTML = `<div class="col-2">
-      <h3>${day}, ${month}</h3>
+      <h3>${forecastTime(forecastResponse.dt * 1000)}</h3>
       <div>
       <img src="${icon}" alt="" id="icon-today" />
       </div>
-      <small>
+      <h4>
       ${temperature}°C
-      </small>
+      </h4>
     </div>`;
 }
 

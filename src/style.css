@@ -38,12 +38,6 @@ small {
   color: #9e9e9e;
 }
 
-.asterisc {
-  color: #9e9e9e;
-  font-size: 12px;
-  text-align: right;
-}
-
 footer {
   text-align: center;
   font-size: 14px;
@@ -72,29 +66,20 @@ footer {
   color: #ffffff;
 }
 
-#icon-today {
-  text-align: right;
-}
-
-#temperature-today {
-  font-size: 60px;
-  color: #212121;
-}
-
 .units {
   position: relative;
   bottom: 30px;
   text-align: left;
 }
 
-.weather-details #main-description {
-  font-size: 20px;
-  font-weight: 700;
-}
-
 .weather-details {
   padding: 0;
   color: #ffffff;
+}
+
+.weather-details #main-description {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .units .active {
@@ -103,7 +88,22 @@ footer {
   pointer-events: none;
 }
 
+.asterisc {
+  color: #9e9e9e;
+  font-size: 12px;
+  text-align: right;
+}
+
+#icon-today {
+  text-align: right;
+}
+
 #icon-forecast {
   display: block;
   margin: 0 auto;
+}
+
+#temperature-today {
+  font-size: 60px;
+  color: #212121;
 }

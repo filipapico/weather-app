@@ -47,8 +47,6 @@ function monthUpdate(timestamp) {
 }
 
 function getTemperature(response) {
-  // Remove next line
-  // console.log(response.data);
   let temperature = document.querySelector("#temperature-today");
   temperatureCelsius = response.data.main.temp;
   temperature.innerHTML = Math.round(temperatureCelsius);
@@ -75,7 +73,6 @@ function getTemperature(response) {
 function forecastTime(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  console.log(hours);
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -87,9 +84,6 @@ function forecastTime(timestamp) {
       minutes = `0${minutes}`;
     }
   }
-  // Remove if to keep daily forecast
-  // return `${hours}:${minutes}`;
-
   let months = [
     "January",
     "February",
@@ -110,8 +104,6 @@ function forecastTime(timestamp) {
 }
 
 function getForecast(response) {
-  // REMOVE NEXT LINE
-  console.log(response.data);
   let forecast = document.querySelector("#forecast");
   forecast.innerHTML = null;
   forecastResponse = null;
@@ -120,8 +112,6 @@ function getForecast(response) {
     let forecastResponse = response.data.list[index];
     let icon = `http://openweathermap.org/img/wn/${forecastResponse.weather[0].icon}@2x.png`;
     let temperature = Math.round(forecastResponse.main.temp);
-    // REMOVE NEXT LINE
-    console.log(forecastResponse.dt_txt);
     forecast.innerHTML += `<div class="col-3">
       <h3>${forecastTime(forecastResponse.dt * 1000)}</h3>
       <div>

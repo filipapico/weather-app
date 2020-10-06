@@ -160,11 +160,15 @@ function handlePosition(position) {
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
+  // FORECAST
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
+  https: axios.get(apiUrl).then(getForecast);
 }
 
 function handleClick(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(handlePosition);
+  event = null;
 }
 
 let currentCity = document.querySelector("#current-city");
